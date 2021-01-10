@@ -1,5 +1,4 @@
-class Peki
-    
+class EncapsulationExample
     def initialize
      @value = 5
     end
@@ -11,14 +10,14 @@ class Peki
     end
 end
 def main
-    p = Peki.new()
-   #puts  p.value 
-   # Ruby de sınıf içindeki değişkenler otomatik olarak
-   # class dışından her zaman private oluyor instance(nesne) variablelar
+    p = EncapsulationExample.new()
+   # puts  p.value 
+   # In Ruby, variables within the class are automatically always private outside of the class instance (object) variables.
     puts p.getvalue
-   # getter methodu tanımlayıp direk erişebiliriz
+   # We can define getter method and access it indirectly.
     p.setvalue(6)
-   # setter methodu ile tanımlayıp direk erişip degiştire biliriz
+   # We can define, access and change with setter method
     puts p.getvalue
 end
 main
+# We call the main method that contains the operations we have done
