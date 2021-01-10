@@ -1,39 +1,38 @@
-class Insan 
-    attr_reader :yas, :isim, :cinsiyet
-    attr_writer :yas, :isim, :cinsiyet
-    def initialize(yas,isim,cinsiyet)
-        @yas = yas
-        @isim = isim
-        @cinsiyet = cinsiyet
+class Human
+    attr_reader :age, :name, :gender
+    attr_writer :age, :name, :gender
+    def initialize(age,name,gender)
+        @yas = age
+        @isim = name
+        @cinsiyet = gender
     end
 
     def >(other)
-        #Burada bir overload  gözüküyor
-        #overload olan simge > budur 
-        @yas > other.yas
+        # An overload appears here, the icon is overload> this is
+        @age > other.age
     end
 
     def ==(other)
-        #Burada da bir overload gözüküyor
-        @isim == other.isim
+        # An overload appears here, the icon is overload == this is
+        @name == other.name
     end
 
-    def equalgender(other)
-        @cinsiyet == other.cinsiyet
+    def equalGender(other)
+        @gender == other.gender
     end
 
 end
 def main
-    sulo = Insan.new(19,"Suleyman","Erkek")
-    murat = Insan.new(20,"Murat","Erkek")
-    gizem = Insan.new(18,"Gizem","Kadın")
-    puts sulo.isim + " " + murat.isim + "'dan yaşca " + (sulo.yas > murat.yas ? 'buyuktur.' : 'kucuktur.')
-    # Gözüktüğü üzere yapmış oldugumuz overload sayesinde aslında > operatörünü değiştirmiş olduk..
-    puts sulo.isim + " " + gizem.isim + "'den yaşca " +(sulo.yas > gizem.yas ? 'buyuktur.' : 'kucuktur. ')
-    puts sulo.isim + " " + murat.isim + " adaş" +(sulo.isim == murat.isim ? 'lar.' : ' değiller.' )
-    # Gözüktüğü üzere buradada yapmış oldugumuz overlad sayesinde == operatorunu değiştirmiş olduk ..
-    puts sulo.isim + " " + gizem.isim + " adaş" +(sulo.overad(gizem) ? 'lar.' : ' değiller.' )
-    puts sulo.isim + " " + murat.isim + " hemcins" +(sulo.equalgender(murat) ? 'ler.' : ' değiller.')
-    puts sulo.isim + " " + gizem.isim + " hemcins" +(sulo.equalgender(gizem) ? 'ler.' : ' değiller.')
+    sulo = Human.new(19,"Suleyman","Male")
+    murat = Human.new(20,"Murat","Male")
+    gizem = Human.new(18,"Gizem","Female")
+    puts sulo.name + " " + murat.name + "'dan yaşca " + (sulo.age > murat.age ? 'buyuktur.' : 'kucuktur.')
+    # Thanks to the overload we made as it seems, we actually changed the > operator.
+    puts sulo.name + " " + gizem.name + "'den yaşca " +(sulo.age > gizem.age ? 'buyuktur.' : 'kucuktur. ')
+    puts sulo.name + " " + murat.name + " aynı yaşta" +(sulo.age == murat.age ? 'lar.' : ' değiller.' )
+    # Thanks to the overload we made as it seems, we actually changed the == operator.
+    puts sulo.name + " " + gizem.name + " aynı yaşta" +(sulo.age == gizem.age ? 'lar.' : ' değiller.' )
+    puts sulo.name + " " + murat.name + " hemcins" +(sulo.equalGender(murat) ? 'ler.' : ' değiller.')
+    puts sulo.name + " " + gizem.name + " hemcins" +(sulo.equalGender(gizem) ? 'ler.' : ' değiller.')
 end
 main
